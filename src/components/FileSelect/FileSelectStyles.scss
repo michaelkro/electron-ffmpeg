@@ -1,0 +1,28 @@
+.file-select {
+  &__is-large {
+    height: 100%;
+  }
+  .dropzone {
+    justify-content: center;
+    border: 2px dashed $grey-900;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    &-text {
+      font-size: $m-size;
+    }
+    &__is-active {
+      background: $green-50;
+      border: 2px solid $green-100;
+      color: $green-900;
+    }
+    &__is-reject {
+      background: $red-50;
+      border: 2px solid $red-100;
+      color: $red-900;
+    }
+  }
+}

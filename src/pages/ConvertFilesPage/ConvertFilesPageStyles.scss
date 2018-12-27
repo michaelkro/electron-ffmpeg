@@ -1,0 +1,21 @@
+.convert-files-page {
+  padding: $l-size;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &--footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &--footer > .button {
+    margin-left: $s-size;
+  }
+}
+
+.list-item--left {
+  max-width: 50%;
+  min-width: 50%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

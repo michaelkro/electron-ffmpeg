@@ -1,0 +1,9 @@
+@import '~normalize.css/normalize.css';
+@import './base/settings';
+@import './base/base';
+@import '../pages/ConvertFilesPage/ConvertFilesPageStyles.scss';
+@import '../pages/FileSelectPage/FileSelectPageStyles.scss';
+@import '../components/Button/ButtonStyles.scss';
+@import '../components/FileSelect/FileSelectStyles.scss';
+@import '../components/List/ListStyles.scss';
+@import '../components/ProgressBar/ProgressBarStyles.scss';

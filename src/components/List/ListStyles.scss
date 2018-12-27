@@ -1,0 +1,17 @@
+.list {
+  background-color: $grey-200;
+  flex: auto;
+  overflow: auto;
+  padding: $s-size;
+}
+
+.list-item {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  list-style: none;
+  padding: 10px;
+  margin-top: 1px;
+}

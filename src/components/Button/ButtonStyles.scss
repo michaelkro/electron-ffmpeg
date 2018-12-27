@@ -1,0 +1,32 @@
+.button {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  min-height: 36px;
+  padding: 8px 16px;
+  text-transform: uppercase;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  &.is-default {
+    background-color: $grey-300;
+    &:hover {
+      background-color: darken($grey-300, 10%);
+    }
+  }
+  &.is-primary {
+    color: white;
+    background-color: $blue-500;
+    &:hover {
+      background-color: darken($blue-500, 10%);
+    }
+  }
+  &.is-icon {
+    background-color: transparent;
+    color: $grey-600;
+  }
+  &:disabled {
+    background-color: $grey-100;
+    color: $grey-400;
+    cursor: default;
+    pointer-events: none;
+  }
+}
