@@ -3,12 +3,14 @@
     height: 100%;
   }
   .dropzone {
-    justify-content: center;
+    align-items: center;
     border: 2px dashed $grey-900;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     height: 100%;
+    justify-content: center;
+    position: relative;
     text-align: center;
     width: 100%;
     &-text {

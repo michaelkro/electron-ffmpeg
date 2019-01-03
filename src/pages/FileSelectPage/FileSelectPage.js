@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
   DROP_ERROR_MESSAGE,
   DROP_MESSAGE,
   FILE_TYPES
 } from './FileSelectPageConstants';
-import FileSelect from '../../components/FileSelect/FileSelect';
+import {
+  FileSelect,
+  FileSelectDropzone,
+  FileSelectDropzoneText
+} from '../../components/FileSelect';
 
 class FileSelectPage extends Component {
   onDrop = droppedFiles => {
@@ -23,16 +28,27 @@ class FileSelectPage extends Component {
     }
   };
 
+  renderDropzone = reactDropzoneProps => {
+    return (
+      <FileSelectDropzone {...reactDropzoneProps}>
+        <FontAwesomeIcon
+          icon={['far', 'file-audio']}
+          size="9x"
+          className="dropzone-icon"
+        />
+        <FileSelectDropzoneText component="p">
+          {reactDropzoneProps.isDragReject ? DROP_ERROR_MESSAGE : DROP_MESSAGE}
+        </FileSelectDropzoneText>
+      </FileSelectDropzone>
+    );
+  };
+
   render() {
     return (
       <div className="file-select-page">
-        <FileSelect
-          accept={FILE_TYPES}
-          errorMessage={DROP_ERROR_MESSAGE}
-          isLarge
-          message={DROP_MESSAGE}
-          onDrop={this.onDrop}
-        />
+        <FileSelect accept={FILE_TYPES} isLarge onDrop={this.onDrop}>
+          {this.renderDropzone}
+        </FileSelect>
       </div>
     );
   }

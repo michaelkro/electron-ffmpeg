@@ -8,7 +8,11 @@ import {
   DROP_MESSAGE,
   FILE_TYPES
 } from './ConvertFilesPageConstants';
-import FileSelect from '../../components/FileSelect/FileSelect';
+import {
+  FileSelect,
+  FileSelectDropzone,
+  FileSelectDropzoneText
+} from '../../components/FileSelect';
 import { ProgressBar, ProgressBarMeter } from '../../components/ProgressBar';
 import { List, ListItem } from '../../components/List';
 import { Button } from '../../components/Button';
@@ -42,6 +46,16 @@ class ConvertFilesPage extends Component {
     }
   };
 
+  renderDropzone = reactDropzoneProps => {
+    return (
+      <FileSelectDropzone {...reactDropzoneProps}>
+        <FileSelectDropzoneText component="p">
+          {reactDropzoneProps.isDragReject ? DROP_ERROR_MESSAGE : DROP_MESSAGE}
+        </FileSelectDropzoneText>
+      </FileSelectDropzone>
+    );
+  };
+
   render() {
     const {
       allFilesConverted,
@@ -53,12 +67,9 @@ class ConvertFilesPage extends Component {
 
     return (
       <div className="convert-files-page">
-        <FileSelect
-          accept={FILE_TYPES}
-          errorMessage={DROP_ERROR_MESSAGE}
-          message={DROP_MESSAGE}
-          onDrop={this.onDrop}
-        />
+        <FileSelect accept={FILE_TYPES} onDrop={this.onDrop}>
+          {this.renderDropzone}
+        </FileSelect>
         <List>
           {files.map(file => (
             <ListItem key={file.name}>
