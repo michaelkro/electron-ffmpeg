@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import moment from 'moment';
 
-import {
-  DROP_ERROR_MESSAGE,
-  DROP_MESSAGE,
-  FILE_TYPES
-} from './ConvertFilesPageConstants';
+import { DROP_ERROR_MESSAGE, DROP_MESSAGE, FILE_TYPES } from '../constants';
 import {
   FileSelect,
   FileSelectDropzone,

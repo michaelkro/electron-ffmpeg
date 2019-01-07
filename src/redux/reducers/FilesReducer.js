@@ -4,7 +4,7 @@ import {
   FILE_PROGRESS,
   CLEAR_FILES,
   REMOVE_FILE
-} from './FileSelectPageConstants';
+} from '../constants/FilesConstants';
 
 const initialState = {
   files: []

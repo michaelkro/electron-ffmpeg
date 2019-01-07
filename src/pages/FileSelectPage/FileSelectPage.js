@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import {
-  DROP_ERROR_MESSAGE,
-  DROP_MESSAGE,
-  FILE_TYPES
-} from './FileSelectPageConstants';
+import { DROP_ERROR_MESSAGE, DROP_MESSAGE, FILE_TYPES } from '../constants';
 import {
   FileSelect,
   FileSelectDropzone,

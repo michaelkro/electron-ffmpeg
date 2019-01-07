@@ -7,7 +7,7 @@ import './styles/styles.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
-import configureStore from './store/configureStore';
+import configureStore from './redux/store/configureStore';
 import AppRouter from './routers/AppRouter';
 
 library.add(faTimes, far);

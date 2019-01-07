@@ -1,12 +1,23 @@
 import { ipcRenderer } from 'electron';
 
-import { FILE_PROGRESS, FILE_COMPLETE } from './ConvertFilesPageConstants';
+import {
+  ADD_FILES,
+  CLEAR_FILES,
+  FILE_PROGRESS,
+  FILE_COMPLETE,
+  REMOVE_FILE
+} from '../constants/FilesConstants';
 
-export {
-  addFilesAction,
-  removeFileAction,
-  clearFilesAction
-} from '../FileSelectPage/FileSelectPageActions';
+export const addFilesAction = files => dispatch => {
+  ipcRenderer.send('files:added', files);
+  ipcRenderer.on('metadata:complete', (event, filesWithMetadata) => {
+    dispatch({ type: ADD_FILES, payload: { filesWithMetadata } });
+  });
+};
+
+export const clearFilesAction = () => ({
+  type: CLEAR_FILES
+});
 
 export const convertFilesAction = files => dispatch => {
   const filesToConvert = files.filter(file => !file.complete);
@@ -27,3 +38,8 @@ export const convertFilesAction = files => dispatch => {
     });
   });
 };
+
+export const removeFileAction = file => ({
+  type: REMOVE_FILE,
+  payload: { file }
+});

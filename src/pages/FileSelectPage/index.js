@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 
 import FileSelectPage from './FileSelectPage';
-import * as FileSelectPageActions from './FileSelectPageActions';
+import { addFilesAction } from '../../redux/actions/FilesActions';
 
-const mapStateToProps = ({ fileSelectPage }, ownProps) => ({
-  ...fileSelectPage,
+const mapStateToProps = ({ files }, ownProps) => ({
+  ...files,
   ...ownProps
 });
 
@@ -14,8 +14,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   ...ownProps
 });
 
+const mapDispatchToProps = {
+  addFilesAction
+};
+
 export default connect(
   mapStateToProps,
-  FileSelectPageActions,
+  mapDispatchToProps,
   mergeProps
 )(FileSelectPage);

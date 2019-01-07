@@ -1,18 +1,30 @@
 import { connect } from 'react-redux';
 
 import ConvertFilesPage from './ConvertFilesPage';
-import * as ConvertFilesPageActions from './ConvertFilesPageActions';
+import {
+  addFilesAction,
+  convertFilesAction,
+  clearFilesAction,
+  removeFileAction
+} from '../../redux/actions/FilesActions';
 import {
   filesInProgress,
   allFilesConverted
-} from './ConvertFilesPageSelectors';
+} from '../../redux/selectors/FilesSelectors';
 
-const mapStateToProps = ({ fileSelectPage: { files } }, ownProps) => ({
+const mapStateToProps = ({ files: { files } }, ownProps) => ({
   ...ownProps,
   files,
   filesInProgress: filesInProgress(files),
   allFilesConverted: allFilesConverted(files)
 });
+
+const mapDispatchToProps = {
+  addFilesAction,
+  convertFilesAction,
+  clearFilesAction,
+  removeFileAction
+};
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => ({
   ...stateProps,
@@ -22,6 +34,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
 
 export default connect(
   mapStateToProps,
-  ConvertFilesPageActions,
+  mapDispatchToProps,
   mergeProps
 )(ConvertFilesPage);
