@@ -3,18 +3,18 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  &--footer {
-    display: flex;
-    justify-content: flex-end;
-  }
-  &--footer > .button {
+}
+
+.convert-files-page--footer {
+  display: flex;
+  justify-content: flex-end;
+  &--actions > .button {
     margin-left: $s-size;
   }
 }
 
 .list-item--left {
-  max-width: 50%;
-  min-width: 50%;
+  width: 50%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
